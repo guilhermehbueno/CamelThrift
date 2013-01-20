@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns="http://www.springframework.org/schema/beans"
+    xsi:schemaLocation="
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" >
+
+    <bean id="processor"
+        class="org.apache.thrift.samples.camel.ThriftProcessor" />
+    <bean
+        id="routeBuilder"
+        class="org.apache.thrift.samples.camel.ThriftRouteBuilder">
+    </bean>
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring" >
+
+        <routeBuilder ref="routeBuilder" />
+    </camelContext>
+
+</beans>
